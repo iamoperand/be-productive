@@ -3,31 +3,39 @@ import '../scss/mainContentStyling.scss';
 
 export default class MainContentComponent extends React.Component{
 
+	submitContent(){
+		
+	}
+
 	render(){
 
 		return(
-			<p>
-				<span id="task" contentEditable="true">
-					Fill in a small next task
-				</span>
-			</p>
-			<p>
-				<b>
-					in order to
-				</b> 
-				<span id="outcome" contentEditable="true">
-					fill in a falsifiable outcome
-				</span>
-			</p>
-			<p>
-				<b>
-					because I want to
-				</b> 
-				<span id="desire" contentEditable="true">
-					fill in the desire behind the outcome
-				</span>
-			</p>
-
+			<div>
+				<p>
+					<span id="task" contentEditable="true">
+						Fill in a small next task
+					</span>
+				</p>
+				<p>
+					<b>
+						in order to
+					</b> 
+					<span id="outcome" contentEditable="true">
+						fill in a falsifiable outcome
+					</span>
+				</p>
+				<p>
+					<b>
+						because I want to
+					</b> 
+					<span id="desire" contentEditable="true">
+						fill in the desire behind the outcome
+					</span>
+				</p>
+				<button onClick={this.submitContent.bind(this)}>
+					Submit
+				</button>
+			</div>
 			);
 	}
 }
