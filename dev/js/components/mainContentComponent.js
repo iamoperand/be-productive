@@ -1,6 +1,11 @@
 import React from 'react';
 import '../scss/mainContentStyling.scss';
 
+import * as firebase from 'firebase';
+
+const database  = firebase.database();
+const mainContentRef = database.ref('mainContent');
+
 export default class MainContentComponent extends React.Component{
 
 	submitContent(){
@@ -12,7 +17,7 @@ export default class MainContentComponent extends React.Component{
 		return(
 			<div>
 				<p>
-					<span id="task" contentEditable="true">
+					<span ref="task" contentEditable="true">
 						Fill in a small next task
 					</span>
 				</p>
@@ -20,7 +25,7 @@ export default class MainContentComponent extends React.Component{
 					<b>
 						in order to
 					</b> 
-					<span id="outcome" contentEditable="true">
+					<span ref="outcome" contentEditable="true">
 						fill in a falsifiable outcome
 					</span>
 				</p>
@@ -28,7 +33,7 @@ export default class MainContentComponent extends React.Component{
 					<b>
 						because I want to
 					</b> 
-					<span id="desire" contentEditable="true">
+					<span ref="desire" contentEditable="true">
 						fill in the desire behind the outcome
 					</span>
 				</p>
