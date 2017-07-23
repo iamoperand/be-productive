@@ -1,5 +1,10 @@
-$primary: #006699;
+$fontColor: red
+$borderColor: black;
+$backgroundColor: white;
 
-h2 {
-	color: $primary;
+span {
+  color: $fontColor;
+  border: 1px solid $borderColor;
+  padding: 5px;
+  background-color: $backgroundColor;
 }
