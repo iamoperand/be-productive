@@ -1,4 +1,5 @@
 import React from 'react';
+import '../scss/mainContentStyling.scss';
 
 export default class MainContentComponent extends React.Component{
 
