@@ -2,10 +2,12 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from "react-dom";
 
+import MainContentComponent from './components/mainContentComponent';
+
 class App extends React.Component{
 
 	render(){
-		return (<div>Hello World</div>);
+		return (<MainContentComponent />);
 	}
 }
 
