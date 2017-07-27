@@ -18,21 +18,11 @@ class App extends Component {
     let motivationRef = database.ref().child('motivation');
     let newMotivationRef = motivationRef.push();
 
-
-    
-
     newMotivationRef.set({
       task: this.refs.task.value
     });
 
-
-    newMotivationRef.on('value', function(snapshot) {
-      
-      this.setState({
-        task: snapshot.val().task
-      }); 
-
-    }.bind(this))
+    
   }
   
   render() {
@@ -56,6 +46,20 @@ class App extends Component {
         </div>
       </div>
     );
+  }
+
+  componentDidMount(){
+
+    let motivationRef = database.ref().child('motivation');
+    motivationRef.on('child_added', function(snapshot){
+      console.log("Inside componentDidMount onSubscribe");  
+      this.setState({
+        task: snapshot.val().task
+      }); 
+
+      }.bind(this));
+    
+    
   }
 }
 
