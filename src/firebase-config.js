@@ -1,4 +1,5 @@
-// Initialize Firebase
+import * as firebase from 'firebase';
+
 var config = {
 	apiKey: "AIzaSyDTq_vLHa5FKZcWkVir2O8LXL7oGqxI4K8",
 	authDomain: "be-productive-3ba63.firebaseapp.com",
