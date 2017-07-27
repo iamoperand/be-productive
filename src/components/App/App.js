@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import * as firebase from 'firebase';
-import '../../firebase-config.js';
+
+import { database } from '../../firebase-config.js';
 
 class App extends Component {
   
@@ -15,9 +15,9 @@ class App extends Component {
 
   sendData(){
 
-    let database = firebase.database();
     let motivationRef = database.ref().child('motivation');
     let newMotivationRef = motivationRef.push();
+
 
     
 
