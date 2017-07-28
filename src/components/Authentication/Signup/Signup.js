@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './Signup.css';
 
+import { auth } from '../../../firebase-config.js';
 
 class Signup extends Component {
   
@@ -24,10 +25,42 @@ class Signup extends Component {
 
   	this.setState({[name]: value});
   }    
-
+    
+  /**
+  * Handles the sign up button press.
+  */
   handleSubmit(event){
-  	console.log('The details submitted are: \n Username: ', this.state.email ,
-  		'\n Password: ', this.state.password);
+
+  	let email = this.state.email,
+  	password = this.state.password;
+
+  	console.log('The details submitted are: \n Username: ', email,
+  		'\n Password: ', password);
+
+  	if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+    }
+    if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+  	}
+
+    // Sign in with email and pass.
+    // [START createwithemail]
+  	auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+	  // Handle Errors here.
+	  var errorCode = error.code;
+	  var errorMessage = error.message;
+	  // ...
+	  if (errorCode === 'auth/weak-password') {
+          alert('The password is too weak.');
+      } else {
+          alert(errorMessage);
+      }
+      console.log(error);
+	
+	});
 
   	event.preventDefault();
   }
