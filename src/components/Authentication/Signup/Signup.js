@@ -8,8 +8,20 @@ class Signup extends Component {
   constructor(props){
 
     super(props);
+    this.state = {email: '', password: ''};
   }
     
+  handleEmailChange(event){
+  	console.log('Email changed: ', event.target.value);
+  	this.setState({email: event.target.value});
+
+  }
+
+  handlePasswordChange(event){
+
+  	console.log('Password changed: ', event.target.value);
+  	this.setState({password: event.target.value});
+  }    
   
   render() {
    
@@ -21,11 +33,11 @@ class Signup extends Component {
 			<form>
 			  <label>
 			    Email:
-			    <input type="text" name="email" />
+			    <input type="text" name="email" onChange={this.handleEmailChange.bind(this)}/>
 			  </label>
 			  <label>
 			    Password:
-			    <input type="password" name="password" />
+			    <input type="password" name="password" onChange={this.handlePasswordChange.bind(this)}/>
 			  </label>
 
 			  <input type="submit" value="Signup" />
