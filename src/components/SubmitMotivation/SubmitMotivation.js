@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-import './App.css';
+import './SubmitMotivation.css';
 
 
 import { database } from '../../firebase-config.js';
 
-class App extends Component {
+class SubmitMotivation extends Component {
   
   constructor(props){
 
     super(props);
-    this.state = {task: "Nothing here"};
+    this.state = {task: "..."};
   }
 
   sendData(){
@@ -63,4 +63,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default SubmitMotivation;
