@@ -10,21 +10,19 @@ class Signup extends Component {
     super(props);
     this.state = {email: '', password: ''};
 
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
     
-  handleEmailChange(event){
-  	console.log('Email changed: ', event.target.value);
-  	this.setState({email: event.target.value});
 
-  }
+  handleInputChange(event){
 
-  handlePasswordChange(event){
+  	const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-  	console.log('Password changed: ', event.target.value);
-  	this.setState({password: event.target.value});
+  	this.setState({[name]: value});
   }    
 
   handleSubmit(event){
@@ -44,11 +42,11 @@ class Signup extends Component {
 			<form onSubmit={this.handleSubmit}>
 			  <label>
 			    Email:
-			    <input type="text" name="email" onChange={this.handleEmailChange}/>
+			    <input type="text" name="email" onChange={this.handleInputChange}/>
 			  </label>
 			  <label>
 			    Password:
-			    <input type="password" name="password" onChange={this.handlePasswordChange}/>
+			    <input type="password" name="password" onChange={this.handleInputChange}/>
 			  </label>
 
 			  <input type="submit" value="Signup"/>
