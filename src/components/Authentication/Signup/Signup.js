@@ -48,7 +48,12 @@ class Signup extends Component {
 
     // Sign in with email and pass.
     // [START createwithemail]
-  	auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+  	auth.createUserWithEmailAndPassword(email, password)
+  	.then(function(res) {
+  		console.log('response: ', res);
+  		this.sendEmailVerification();
+  	}.bind(this))
+  	.catch(function(error) {
 	  // Handle Errors here.
 	  var errorCode = error.code;
 	  var errorMessage = error.message;
@@ -61,10 +66,26 @@ class Signup extends Component {
       console.log(error);
 	
 	});
-
+  	// [END createwithemail]
+  	
   	event.preventDefault();
   }
-  
+
+
+   /**
+   * Sends an email verification to the user.
+   */
+  sendEmailVerification() {
+    // [START sendemailverification]
+    auth.currentUser.sendEmailVerification().then(function() {
+      // Email Verification sent!
+      // [START_EXCLUDE]
+      alert('Email Verification Sent!');
+      // [END_EXCLUDE]
+    });
+    // [END sendemailverification]
+  }
+
   render() {
    
     return (
