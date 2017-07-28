@@ -11,6 +11,8 @@ var config = {
 
 firebase.initializeApp(config);
 
-let database = firebase.database();
+let database = firebase.database(),
+	auth = firebase.auth();
 
-export { database };
+
+export { database, auth };
